@@ -2,7 +2,6 @@
   <b-carousel
     :indicator="false"
     :arrow="false"
-    :animated="fade"
     :interval="2000"
     :autoplay="true"
     :pause-hover="false"

@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div v-for="(day, i) in days" :key="i">
-      <day-calendar-component :name="day.name" :number="day.id"></day-calendar-component>
+    <div class="columns">
+      <div v-for="(day, i) in days" :key="i" class="column">
+        <day-calendar-component :isToday="todayNumber===day.id" :name="day.name" :number="day.id"></day-calendar-component>
+      </div>
     </div>
   </div>
 </template>
@@ -15,15 +17,20 @@ export default {
   data() {
     return {
       days: [
-        { name: "Zondag", id: 1 },
-        { name: "Maandag", id: 2 },
-        { name: "Dinsdag", id: 3 },
-        { name: "Woensdag", id: 4 },
-        { name: "Donderdag", id: 5 },
-        { name: "Vrijdag", id: 6 },
-        { name: "Zaterdag", id: 7 }
+        { name: "Zondag", id: 0 },
+        { name: "Maandag", id: 1 },
+        { name: "Dinsdag", id: 2 },
+        { name: "Woensdag", id: 3 },
+        { name: "Donderdag", id: 4 },
+        { name: "Vrijdag", id: 5 },
+        { name: "Zaterdag", id: 6 }
       ]
     };
+  },
+  computed: {
+    todayNumber() {
+      return new Date().getDay();
+    }
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <div class="columns">
-    <div class="column">
-      <p>{{ name }}</p>
+  <div class="day" :class="isToday ? 'today' : ''">
+    <div class="inside">
+      <p class="name">{{ name }}</p>
     </div>
   </div>
 </template>
@@ -13,8 +13,15 @@ export default {
     EventsComponent
   },
   props: {
-    name: "",
-    number: "0"
+    name,
+    isToday: {
+      default: false,
+      type: Boolean
+    },
+    number: {
+      default: 0,
+      type: Number
+    }
   },
   data() {
     return {};
@@ -23,12 +30,17 @@ export default {
 </script>
 
 <style scoped>
-.item {
-  font-family: "Caveat", cursive;
+.day {
+  height: 10rem;
+  background-color: #fff;
 }
-
-section,
-.carousel {
-  height: 100%;
+.day .inside {
+  padding: 1rem;
+}
+.day .name {
+  border-bottom: 1px solid #000;
+}
+.day.today {
+  background-color: #8fc;
 }
 </style>
