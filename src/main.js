@@ -3,6 +3,7 @@
 
 import DefaultLayout from "~/layouts/Default.vue";
 import Buefy from "buefy";
+import "balloon-css";
 
 import "buefy/dist/buefy.css";
 
