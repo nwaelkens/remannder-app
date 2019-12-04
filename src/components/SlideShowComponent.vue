@@ -2,10 +2,10 @@
   <b-carousel
     :indicator="false"
     :arrow="false"
-    :interval="10000"
+    :interval="4000"
     :autoplay="true"
     :pause-hover="false"
-    :animated="fade"
+    animated="fade"
   >
     <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
       <section
