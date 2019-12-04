@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div class="weekCalendar">
     <div class="columns">
-      <div v-for="(day, i) in days" :key="i" class="column">
-        <day-calendar-component :isToday="todayNumber===day.id" :name="day.name" :number="day.id"></day-calendar-component>
+      <div v-for="(position, index) in 5" :key="index" class="column">
+        <day-calendar-component
+          :isToday="getDate(position).getDay() === now.getDay()"
+          :date="getDate(position)"
+        ></day-calendar-component>
       </div>
     </div>
   </div>
@@ -16,21 +19,27 @@ export default {
   },
   data() {
     return {
-      days: [
-        { name: "Zondag", id: 0 },
-        { name: "Maandag", id: 1 },
-        { name: "Dinsdag", id: 2 },
-        { name: "Woensdag", id: 3 },
-        { name: "Donderdag", id: 4 },
-        { name: "Vrijdag", id: 5 },
-        { name: "Zaterdag", id: 6 }
-      ]
+      now: null,
+      showHowManyDays: 5,
+      firstDayOffset: -1
     };
   },
-  computed: {
-    todayNumber() {
-      return new Date().getDay();
+  methods: {
+    getDate(position) {
+      position--;
+      const newDate = new Date();
+      return new Date(
+        newDate.setDate(newDate.getDate() + position + this.firstDayOffset)
+      );
+    },
+    currentDateTime() {
+      var self = this;
+      this.now = new Date();
+      setTimeout(self.currentDateTime, 1000);
     }
+  },
+  created() {
+    this.currentDateTime();
   }
 };
 </script>
@@ -39,9 +48,13 @@ export default {
 .item {
   font-family: "Caveat", cursive;
 }
-
-section,
-.carousel {
-  height: 100%;
+.weekCalendar {
+  /* padding: 0;
+  margin: 0; */
+}
+.column,
+.columns {
+  /* padding: 0; */
+  /* margin: 0; */
 }
 </style>
