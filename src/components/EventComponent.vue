@@ -10,9 +10,7 @@
       </div>
       <div class="level-item">
         <div class="content">
-          <div class="text-balloon">
-            {{ content }}
-          </div>
+          <div class="text-balloon">{{ content }}</div>
         </div>
       </div>
     </div>
@@ -48,7 +46,7 @@ div.content {
 .text-balloon {
   position: relative;
   left: 0.7rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 1.125em 1.5em;
   margin: 0 1rem 1rem 0;
   /* font-size: 1.7rem; */
@@ -57,7 +55,9 @@ div.content {
     0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
   /* font-family: "Caveat", cursive; */
   /* font-weight: bolder; */
-  color: #999;
+  color: #000;
+  font-family: "Indie Flower", cursive;
+  font-size: 1.2rem;
 }
 
 .today .text-balloon {
@@ -71,10 +71,10 @@ div.content {
   width: 0;
   height: 0;
   bottom: 60%;
-  left: -0.7em;
+  left: -0.62em;
   border: 0.75rem solid transparent;
   border-right: none;
-  border-bottom-color: rgba(255, 255, 255, 0.3);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
   filter: drop-shadow(-0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.1));
 }
 
@@ -84,5 +84,9 @@ div.content {
 
 .level-item {
   flex-shrink: 1;
+}
+
+.today:root {
+  background-color: #f00;
 }
 </style>

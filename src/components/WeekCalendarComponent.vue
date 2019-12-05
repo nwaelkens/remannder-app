@@ -49,12 +49,19 @@ export default {
   font-family: "Caveat", cursive;
 }
 .weekCalendar {
-  /* padding: 0;
-  margin: 0; */
+  margin: 0 1rem;
 }
-.column,
 .columns {
-  /* padding: 0; */
-  /* margin: 0; */
+  margin: 0;
+  padding: 0;
+}
+
+.column:first-child {
+  padding-left: 0;
+}
+
+.column {
+  padding: 0 0 1rem 1rem;
+  margin: 0;
 }
 </style>

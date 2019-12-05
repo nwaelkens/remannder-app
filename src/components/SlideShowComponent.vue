@@ -1,8 +1,8 @@
 <template>
-  <b-carousel
+  <!-- <b-carousel
     :indicator="false"
     :arrow="false"
-    :interval="4000"
+    :interval="3000"
     :autoplay="true"
     :pause-hover="false"
     animated="fade"
@@ -20,12 +20,30 @@
           class="hero-body is-fullheight has-text-centered"
           :style="'background-image: url(\'../../uploads/' + file + ');'"
         ></div>
-        <!-- <img
-          src="../../static/uploads/f2b94d42-70f6-4e8b-b82f-eb47120b5c94.JPG"
-        /> -->
       </section>
     </b-carousel-item>
-  </b-carousel>
+  </b-carousel>-->
+  <agile
+    :nav-buttons="false"
+    :dots="false"
+    :autoplay-speed="8000"
+    :speed="3000"
+    loop
+    fade
+    autoplay
+    :pause-on-hover="false"
+  >
+    <div v-for="(carousel, i) in carousels" :key="i">
+      <div
+        class="slide hero is-large"
+        :style="
+          'background-image: url(\'../../uploads/' +
+            carousel.file +
+            '\');background-size: cover;'
+        "
+      ></div>
+    </div>
+  </agile>
 </template>
 
 <script>
@@ -47,6 +65,13 @@ export default {
 </script>
 
 <style scoped>
+.slide {
+  display: block;
+  height: 100vh;
+  object-fit: cover;
+  width: 100%;
+}
+
 .item {
   font-family: "Caveat", cursive;
 }

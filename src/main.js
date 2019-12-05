@@ -3,9 +3,10 @@
 
 import DefaultLayout from "~/layouts/Default.vue";
 import Buefy from "buefy";
-import "balloon-css";
-
+// import "balloon-css";
+import "~/assets/styles.css";
 import "buefy/dist/buefy.css";
+import VueAgile from "vue-agile";
 
 // Then add it to export function
 
@@ -14,9 +15,11 @@ export default function(Vue, { router, head, isClient }) {
   Vue.component("Layout", DefaultLayout);
 
   Vue.use(Buefy);
+  Vue.use(VueAgile);
 
   head.link.push({
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css?family=Caveat|Domine&display=swap"
+    href:
+      "https://fonts.googleapis.com/css?family=Domine|Indie+Flower&display=swap"
   });
 }
