@@ -1,18 +1,9 @@
 <template>
   <Layout>
-    <!-- <div class="hero-head">
-      <date-time-component></date-time-component>
-    </div>
-    <div class="hero-body">
-      <div class="container">
-        <slide-show-component></slide-show-component>
-      </div>
-    </div>
-    <div class="hero-foot">-->
-    <!-- </div> -->
-    <!-- <div class="hero-body"> -->
     <!-- <div class="hero-head"> -->
-    <!-- <div class="container"> -->
+
+    <!-- </div> -->
+
     <div>
       <slide-show-component></slide-show-component>
     </div>
@@ -30,10 +21,8 @@
 <script>
 import SlideShowComponent from "~/components/SlideShowComponent";
 import WeekCalendarComponent from "~/components/WeekCalendarComponent";
-import DateTimeComponent from "~/components/DateTimeComponent";
 export default {
   components: {
-    DateTimeComponent,
     WeekCalendarComponent,
     SlideShowComponent
   }

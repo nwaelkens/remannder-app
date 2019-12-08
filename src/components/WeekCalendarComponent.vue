@@ -1,5 +1,6 @@
 <template>
   <div class="weekCalendar">
+    <date-time-component :now="now"></date-time-component>
     <div class="columns">
       <div v-for="(position, index) in 5" :key="index" class="column">
         <day-calendar-component
@@ -13,8 +14,10 @@
 
 <script>
 import DayCalendarComponent from "~/components/DayCalendarComponent";
+import DateTimeComponent from "~/components/DateTimeComponent";
 export default {
   components: {
+    DateTimeComponent,
     DayCalendarComponent
   },
   data() {
@@ -45,9 +48,6 @@ export default {
 </script>
 
 <style scoped>
-.item {
-  font-family: "Caveat", cursive;
-}
 .weekCalendar {
   margin: 0 1rem;
 }

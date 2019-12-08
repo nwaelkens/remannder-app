@@ -20,6 +20,6 @@ export default function(Vue, { router, head, isClient }) {
   head.link.push({
     rel: "stylesheet",
     href:
-      "https://fonts.googleapis.com/css?family=Domine|Indie+Flower&display=swap"
+      "https://fonts.googleapis.com/css?family=Domine|Indie+Flower|Varela+Round&display=swap"
   });
 }

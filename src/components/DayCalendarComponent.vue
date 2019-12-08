@@ -41,25 +41,33 @@ export default {
 <style scoped>
 .day {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 0.2rem;
+}
+.day * {
+  opacity: 0.8;
+}
+.day.today * {
+  opacity: 1;
 }
 .day .inside {
   padding: 1rem;
 }
 .day .name {
-  /* border-bottom: 1px solid #999; */
   padding: 0.2rem 0 0;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(-0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.9));
 }
 .day .name:first-letter {
   text-transform: uppercase;
 }
 .day.today .name {
-  /* border-bottom: 1px solid #000; */
   color: #000;
+  filter: none;
+  font-size: 2em;
 }
 .day.today {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.9); */
 }
 </style>

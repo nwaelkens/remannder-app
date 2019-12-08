@@ -1,70 +1,95 @@
 <template>
-  <!-- <b-carousel
-    :indicator="false"
-    :arrow="false"
-    :interval="3000"
-    :autoplay="true"
-    :pause-hover="false"
-    animated="fade"
-  >
-    <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
-      <section
-        class="hero is-large"
-        :style="
-          'background-image: url(\'../../uploads/' +
-            carousel.file +
-            '\');background-size: cover;'
-        "
-      >
+  <div>
+    <agile
+      :nav-buttons="false"
+      :dots="false"
+      :autoplay-speed="8000"
+      :speed="3000"
+      loop
+      fade
+      autoplay
+      :pause-on-hover="false"
+    >
+      <div v-for="(carousel, i) in carousels" :key="i">
         <div
-          class="hero-body is-fullheight has-text-centered"
-          :style="'background-image: url(\'../../uploads/' + file + ');'"
-        ></div>
-      </section>
-    </b-carousel-item>
-  </b-carousel>-->
-  <agile
-    :nav-buttons="false"
-    :dots="false"
-    :autoplay-speed="8000"
-    :speed="3000"
-    loop
-    fade
-    autoplay
-    :pause-on-hover="false"
-  >
-    <div v-for="(carousel, i) in carousels" :key="i">
-      <div
-        class="slide hero is-large"
-        :style="
-          'background-image: url(\'../../uploads/' +
-            carousel.file +
-            '\');background-size: cover;'
-        "
-      ></div>
-    </div>
-  </agile>
+          class="slide hero is-large"
+          :style="
+            'background-image: url(\'../../uploads/' +
+              carousel.file +
+              '\');background-size: cover;'
+          "
+        >
+          <foto-comment-component
+            :comment="carousel.content"
+            :user="1"
+            :position="carousel.position"
+            class="foto-comment-component"
+          ></foto-comment-component>
+        </div>
+      </div>
+    </agile>
+  </div>
 </template>
 
 <script>
+import CommentComponent from "~/components/CommentComponent";
+
 export default {
+  components: {
+    "foto-comment-component": CommentComponent
+  },
   data() {
     return {
       carousels: [
-        { file: "loofhut.jpg" },
-        { file: "IMG_5358.JPG" },
-        { file: "IMG_5423.JPG" },
-        { file: "IMG_5424.JPG" },
-        { file: "IMG_5425.JPG" },
-        { file: "f2b94d42-70f6-4e8b-b82f-eb47120b5c94.JPG" },
-        { file: "IMG_5617.JPG" }
+        {
+          file: "IMG_5358.JPG",
+          content:
+            "Gezellig buiten eten in de hut bij een vuurtje. U had het koud en had geen jas bij, u hebt die van mij aan :-)",
+          position: "left"
+        },
+        {
+          file: "IMG_5423.JPG",
+          content: "Spontaan opgepikt wandelmaatje.",
+          position: "right"
+        },
+        {
+          file: "IMG_5424.JPG",
+          content: "Zaterdag middag in het bos.",
+          position: "left"
+        },
+        {
+          file: "IMG_5425.JPG",
+          content: "Lekker spelen en pannekoeken eten in het bos",
+          position: "right"
+        },
+        {
+          file: "f2b94d42-70f6-4e8b-b82f-eb47120b5c94.JPG",
+          content: "Verhaaltje voorlezen aan Jozua.",
+          position: "left"
+        },
+        {
+          file: "IMG_5617.JPG",
+          content:
+            "Met uw broer Bram naar het 40 jarig huwelijk van uw broer Henk en zijn vrouw Dieuwke.",
+          position: "right"
+        }
       ]
     };
   }
 };
 </script>
 
-<style scoped>
+<style>
+.foto-comment-component {
+  margin: 1rem;
+  /* max-width: 50%; */
+}
+
+.foto-comment-component .text-balloon {
+  max-width: 50%;
+  opacity: 0.8;
+}
+
 .slide {
   display: block;
   height: 100vh;
@@ -73,7 +98,8 @@ export default {
 }
 
 .item {
-  font-family: "Caveat", cursive;
+  /* font-family: "Caveat", cursive; */
+  font-family: "Varela Round", sans-serif;
 }
 
 .carousel-list {
@@ -86,6 +112,5 @@ export default {
 
 .carousel-item section {
   min-height: 100vh !important;
-  background-image: ;
 }
 </style>
